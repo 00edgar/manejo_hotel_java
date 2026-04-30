@@ -1,6 +1,3 @@
-let habitaciones=[];
-
-
 function mostrarMenu(){
     let opcion = prompt(
         "   MANEJO DE HOTEL ELIJA UNA OPCION\n"+
@@ -8,7 +5,7 @@ function mostrarMenu(){
         "2. Listar habitaciones\n"+
         "3. Buscar habitación por numero\n"+
         "4. Canbiar estado de habitación\n"+
-        "5. Para eliminar habitación"+
+        "5. Para eliminar habitación\n"+
         "6. Para salir"
     )
 
@@ -60,7 +57,7 @@ function registrarHabitacion(callback){
    function mostrarHabitacion(callback){
        console.log("************* Listado de Habitaciones *************");
        habitaciones.forEach(habitacion => {
-           console.log(habitacion.nombre, habitacion.precio, habitacion.estado);
+           console.log("Habitacion numero ", habitacion.nombre + ", Tipo: " , habitacion.tipo + ", Precio: " , habitacion.precio + ", Estado: " , habitacion.estado);
        });
        if (callback) callback();
     }
@@ -104,6 +101,27 @@ function registrarHabitacion(callback){
 
 
   function eliminarHabitacion(callback){
-
+    let nombre = prompt("ingrese el numero de la habitacion a eliminar:")
+    console.log("Buscando...")  
+    setTimeout(function(){
+        let indice = habitaciones.findIndex(habitacion =>{
+            return habitacion.nombre.toLowerCase() === nombre.toLowerCase()
+        });
+        if(indice !== -1){
+            habitaciones.splice(indice, 1);
+            console.log("habitacion eliminada...")
+        }else{
+            console.log("habitacion no existe!!!")
+        }                   
+        callback();
+    }
+    ,2000)
   
   }
+  function salir(){
+    console.log("Gracias por usar el sistema de gestión de hotel. ¡Hasta luego!");
+  } 
+  let habitaciones = [
+
+    
+  ];
