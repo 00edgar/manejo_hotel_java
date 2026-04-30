@@ -1,3 +1,4 @@
+  let habitaciones = [];
 function mostrarMenu(){
     let opcion = prompt(
         "   MANEJO DE HOTEL ELIJA UNA OPCION\n"+
@@ -121,7 +122,3 @@ function registrarHabitacion(callback){
   function salir(){
     console.log("Gracias por usar el sistema de gestión de hotel. ¡Hasta luego!");
   } 
-  let habitaciones = [
-
-    
-  ];
